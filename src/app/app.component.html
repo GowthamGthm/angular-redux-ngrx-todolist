@@ -1,0 +1,23 @@
+<div style="margin-top: 100px; margin-left: 50px">
+  <div style="display: flex">
+    <input type="text" [(ngModel)]="todo" name="todoInput" id="todoInput" placeholder="todo input">
+    <button (click)="todoAdded()">Submit</button>
+  </div>
+</div>
+
+
+<div style="margin-left: 75px">
+  <h1>TO-DO List</h1>
+
+  <div *ngFor="let item of todoList$ | async; let i = index;">
+    <div style="display: flex">
+      <p> {{i+1  + ") " + item.task}} </p>
+      <button (click)="todoDelete(item)" >Delete</button>
+    </div>
+  </div>
+
+  <div *ngIf="error$ | async">
+    <p>{{ error$ | async }}</p>
+  </div>
+
+</div>
