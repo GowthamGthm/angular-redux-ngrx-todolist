@@ -32,10 +32,8 @@ export class AppComponent {
       id$.subscribe(val => {
         let newTodo: Todo = {id: val, task: this.todo};
         this.store.dispatch(TodoActions.addTodo({todo: newTodo}));
+        this.todo = "";
       }).unsubscribe();
-      console.log(this.todo);
-      // clear todo
-      this.todo = "";
     }
   }
 
